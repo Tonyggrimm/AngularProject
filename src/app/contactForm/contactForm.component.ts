@@ -5,7 +5,6 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-contactForm',
   templateUrl: './contactForm.component.html',
-  styleUrls: ['./contactForm.component.scss']
 })
 export class ContactFormComponent implements OnInit{
 

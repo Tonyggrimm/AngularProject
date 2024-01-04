@@ -5,7 +5,6 @@ import { DestinationService } from '../services/destination.service';
 @Component({
   selector: 'app-search-destination',
   templateUrl: './search-destination.component.html',
-  styleUrls: ['./search-destination.component.scss']
 })
 export class SearchDestinationComponent {
   destinations!:destination[];

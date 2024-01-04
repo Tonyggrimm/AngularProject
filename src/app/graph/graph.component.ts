@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy} from '@angular/core';
+import { Component, OnInit,OnDestroy,ViewChild,ElementRef,AfterViewInit} from '@angular/core';
 import {Chart, ChartConfiguration, ChartItem, registerables} from 'node_modules/chart.js'
 import { DestinationService } from '../services/destination.service';
 import { fromEvent, Observable, Subscription } from "rxjs";
@@ -6,9 +6,9 @@ import { fromEvent, Observable, Subscription } from "rxjs";
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.scss']
 })
-export class GraphComponent implements OnInit,OnDestroy{
+export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
+  @ViewChild('myChart') myChart!: ElementRef;
   chartContainer!:Chart;
   continentAmountAfrica!:number;
   continentAmountEurope!:number;
@@ -32,6 +32,10 @@ export class GraphComponent implements OnInit,OnDestroy{
   }
 
 
+  ngAfterViewInit(): void {
+    this.cnv=this.myChart.nativeElement;
+    this.cnv.style.backgroundColor = "#add8e6";
+  }
 
 
 
@@ -39,8 +43,7 @@ export class GraphComponent implements OnInit,OnDestroy{
 
 
   ngOnInit(): void {
-    this.cnv=document.getElementById("my-chart");
-    this.cnv.style.backgroundColor = "#add8e6";
+
 
 
 
@@ -91,7 +94,7 @@ export class GraphComponent implements OnInit,OnDestroy{
     options: options
   }
 
-  const chartItem: ChartItem = document.getElementById('my-chart') as ChartItem;
+  const chartItem: ChartItem = this.cnv as ChartItem;
 
 
       if (this.chartContainer && this.chartContainer != null) {
@@ -104,4 +107,6 @@ export class GraphComponent implements OnInit,OnDestroy{
   ngOnDestroy() {
     this.resizeSubscription.unsubscribe()
 }
+
+
 }

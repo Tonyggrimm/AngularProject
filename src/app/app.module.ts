@@ -26,7 +26,6 @@ import { AfriqueComponent } from './afrique/afrique.component';
 import { AsieComponent } from './asie/asie.component';
 import { EuropeComponent } from './europe/europe.component';
 import { OceanieComponent } from './oceanie/oceanie.component';
-import { RechercheComponent } from './recherche/recherche.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { SearchEmployeePipe } from './pipe/search-employee.pipe';
 import { SearchDestinationPipe } from "./pipe/search-destination.pipe";
@@ -57,7 +56,6 @@ import { AmeriqueSudComponent } from './amerique-sud/amerique-sud.component';
      AsieComponent,
      EuropeComponent,
      OceanieComponent,
-     RechercheComponent,
      FilterPipe,
      SearchDestinationPipe,
      SearchEmployeePipe,
