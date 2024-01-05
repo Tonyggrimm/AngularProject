@@ -35,6 +35,9 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
   ngAfterViewInit(): void {
     this.cnv=this.myChart.nativeElement;
     this.cnv.style.backgroundColor = "#add8e6";
+      if(!this.chartContainer){
+        this.createChart();
+      }
   }
 
 
@@ -43,14 +46,6 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
 
 
   ngOnInit(): void {
-
-
-
-
-    if(!this.chartContainer){
-      this.createChart();
-    }
-
     this.resizeObservable = fromEvent(window, 'resize')
     this.resizeSubscription = this.resizeObservable.subscribe( evt => {
       this.createChart();
