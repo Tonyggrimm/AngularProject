@@ -20,7 +20,6 @@ export class DestinationDetailComponent {
     this.destinationService.islogg=false;
     const destinationid = +this.route.snapshot.params['id'];
     this.destination= this.destinationService.getDestinationBy(destinationid);
-    console.log(this.destination.galerie[0]);
 
   }
 

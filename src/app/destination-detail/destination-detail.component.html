@@ -1,57 +1,52 @@
-<!-- Gallery -->
-<div *ngIf="destination.id<20" class="row">
-  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
 
-    <img
-      [src]="destination.galerie[0]"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="image se charge"
-    />
+<div *ngIf="destination ;else no_destination">
+  <div *ngIf="destination.id<20" class="row">
+    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
 
-    <img
-      [src]="destination.galerie[1]"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="image se charge"
-    />
-  </div>
+      <img
+        [src]="destination.galerie[0]"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
 
-  <div class="col-lg-4 mb-4 mb-lg-0">
+      <img
+        [src]="destination.galerie[1]"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
+    </div>
 
-    <img
-      [src]="destination.galerie[2]"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="image se charge"
-    />
+    <div class="col-lg-4 mb-4 mb-lg-0">
 
-    <img
-      [src]="destination.galerie[3]"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="image se charge"
-    />
-  </div>
+      <img
+        [src]="destination.galerie[2]"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
 
-  <div class="col-lg-4 mb-4 mb-lg-0">
+      <img
+        [src]="destination.galerie[3]"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
+    </div>
 
-    <img
-      [src]="destination.galerie[4]"
+    <div class="col-lg-4 mb-4 mb-lg-0">
 
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="image se charge"
-    />
+      <img
+        [src]="destination.galerie[4]"
 
-    <img
-      [src]="destination.galerie[5]"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="image se charge"
-    />
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
+
+      <img
+        [src]="destination.galerie[5]"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
+    </div>
   </div>
 </div>
 
-
-<div *ngIf="destination.id>=20" class="row">
-  <img
-      [src]="destination.afficheUrl"
-      id="imageExterne"
-      alt="image non existante"
-    />
-</div>
+<ng-template #no_destination><p>Error, no destination found!</p></ng-template>

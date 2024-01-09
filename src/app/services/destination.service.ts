@@ -365,10 +365,10 @@ export class DestinationService {
   getAllDestinations() {
     return this.destinations;
   }
-  getDestinationBy(destinationId: number): destination {
-    const destination = this.destinations.find(destination => destination.id ==destinationId);
+  getDestinationBy(GivenId: number): destination {
+    const destination = this.destinations.find(destination => destination.id ==GivenId);
     if(!destination) {
-      throw new Error('Episode not found!');
+      throw new Error('Destination not found!');
     } else {
       return destination;
     }
@@ -409,6 +409,8 @@ export class DestinationService {
 
 
   }
+
+
   islogg!:boolean;
    isChecked1!:boolean;
    isChecked2!:boolean;

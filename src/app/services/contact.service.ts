@@ -11,7 +11,7 @@ export class ContactService{
   contacts: ContactModel[]= [
     {
 
-      id:1,
+      id:0,
       nomPersonne:'Mamadou',
       prenomPersonne: 'Barry',
       identifiantIG: 'itsBarry',
@@ -23,7 +23,7 @@ export class ContactService{
     },
 
     {
-      id:2,
+      id:1,
       nomPersonne:'Nguemnang',
       prenomPersonne: 'Naomie',
       identifiantIG: 'itsnaomie',
@@ -36,7 +36,7 @@ export class ContactService{
     },
 
     {
-      id:3,
+      id:2,
       nomPersonne:'Linemann',
       prenomPersonne: 'Anton',
       identifiantIG: 'itsAnton',
@@ -46,6 +46,7 @@ export class ContactService{
       email:'anton.linemann@hotmail.com',
       activites:"fleuve"
     }
+
   ];
 
   getAllContact():ContactModel[]{
