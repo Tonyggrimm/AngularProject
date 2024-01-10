@@ -1,8 +1,4 @@
 export interface tpApiDestination {
-  id: number;
+  id:number;
   name: string;
-  country: string;
-  continent: string;
-  MainImageUrl: string;
-  secondaryImageUrl:string;
 }

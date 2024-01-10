@@ -7,27 +7,7 @@ import {tpApiDestination} from '../model/teleportApiDestinations.model';
   providedIn: 'root'
 })
 export class TeleportApiDestinationsService {
-  private baseUrl = 'https://api.teleport.org/api/urban_areas';
 
 
-  constructor(private http:HttpClient) {}
-
-  getApiDestinationMainImg(cityName:string): Observable<tpApiDestination> {
-
-    return (this.http.get<tpApiDestination>(`${this.baseUrl}`+"/slug:"+cityName, {responseType:'json'}))//['photos'][0]['image']['mobile']//
-  }
-
-
-  //getApiDestinationName(){
- // }
-
-
-  //getApiDestinationCountry
-
-  //getApiDestinationContinent
-
-  //getApiDestinationSecondaryImg
-
-  //getTenRandomDestinations
 }
 

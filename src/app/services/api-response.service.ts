@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {tpApiDestination} from '../model/teleportApiDestinations.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,20 @@ export class ApiResponseService {
 
     getApiDestinationMainUrl(): Observable<any> {
 
-      return this.http.get<any>(`${this.baseUrl}`, {responseType:'json'})
+      return this.http.get<any>(`${this.baseUrl}`)
     }
+
+    getApiDestinationComplexUrl(cityName :string):Observable<Object> {
+
+      return this.http.get<Object>(`${this.baseUrl}`+"/slug:"+ cityName, {responseType:'json'})
+    }
+
+    getApiDestinationImages(cityName :string):Observable<Object> {
+
+      return this.http.get<Object>(`${this.baseUrl}`+"/slug:"+ cityName+"/images", {responseType:'json'})
+    }
+
+
+
+
 }

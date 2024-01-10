@@ -1,1 +1,17 @@
-<p>test</p>
+
+<p *ngFor ="let location of ApiiDestinations" p>{{this.location.name}}</p>
+<!--
+  <div class="col">
+  <div class="card">
+    <img [src]="ApiiDestinations.MainImageUrl" class="card-img-top" alt="image se charge"/>
+    <div class="card-body">
+      <h5 class="card-title">Lieu: {{ApiiDestinations.name}}</h5>
+      <p class="card-text">
+        Pays: {{ApiiDestinations.country}}
+      </p>
+      <p>Continent: {{ApiiDestinations.continent}}</p>
+      <button class="bg-primary text-white" (click)="onDetailDestination()">Voir plus de photos</button>
+
+    </div>
+  </div>
+</div>-->
