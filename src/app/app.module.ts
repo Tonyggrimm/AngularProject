@@ -1,4 +1,5 @@
 import {registerLocaleData} from "@angular/common";
+import { HttpClientModule } from  "@angular/common/http";
 import * as fr from '@angular/common/locales/fr';
 
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -32,6 +33,7 @@ import { SearchDestinationPipe } from "./pipe/search-destination.pipe";
 import { SearchDestinationComponent } from './search-destination/search-destination.component';
 import { AmeriqueNordComponent } from './amerique-nord/amerique-nord.component';
 import { AmeriqueSudComponent } from './amerique-sud/amerique-sud.component';
+import { ApiTestComponent } from "./api-test/api-test.component";
 
 
 @NgModule({
@@ -61,11 +63,13 @@ import { AmeriqueSudComponent } from './amerique-sud/amerique-sud.component';
      SearchEmployeePipe,
      SearchDestinationComponent,
      AmeriqueNordComponent,
-     AmeriqueSudComponent
+     AmeriqueSudComponent,
+     ApiTestComponent
 
 
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,

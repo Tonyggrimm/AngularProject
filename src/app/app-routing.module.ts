@@ -13,6 +13,7 @@ import {SearchDestinationComponent } from './search-destination/search-destinati
 import {OceanieComponent} from "./oceanie/oceanie.component";
 import {AmeriqueNordComponent} from "./amerique-nord/amerique-nord.component";
 import {AmeriqueSudComponent} from "./amerique-sud/amerique-sud.component";
+import { ApiTestComponent } from './api-test/api-test.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'oceaniedestination', component: OceanieComponent},
   { path: 'nadestination', component: AmeriqueNordComponent},
   { path: 'sadestination', component: AmeriqueSudComponent},
+  { path: 'test', component: ApiTestComponent},
 
 
 
