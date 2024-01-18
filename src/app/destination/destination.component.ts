@@ -9,12 +9,13 @@ import { ApiResponseService } from '../services/api-response.service';
   styleUrls: ['./destination.component.scss']
 })
 export class DestinationComponent   {
+ // @Input() destination!: tpApiDestination;
   constructor(private ApiResponseService:ApiResponseService, private router: Router) {
   }
 
 
-  onDetailDestination(){
-   // this.router.navigateByUrl('membres/' + this.destination.id);
-  }
+ // onDetailDestination(){
+  //  this.router.navigateByUrl('membres/' + this.destination.id);
+ // }
 
 }

@@ -7,8 +7,8 @@ import { ImageResponse } from '../model/ImageResponse.model';
 })
 export class PhotomapperService {
 
-  toClient(images:BasicResponse[]):ImageResponse[]{
-    return images.map((image)=>({
+  toClient(getResponse:BasicResponse[]):ImageResponse[]{
+    return getResponse.map((image)=>({
       id:image.id,
       author:image.author,
       url:image.download_url

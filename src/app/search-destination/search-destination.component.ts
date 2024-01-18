@@ -15,7 +15,7 @@ export class SearchDestinationComponent {
 
   ngOnInit(): void {
 
-    this.destinations=this.destinationService.getAllDestinations();
+   // this.destinations=this.destinationService.getAllDestinations();
   }
 
 

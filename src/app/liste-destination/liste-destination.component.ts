@@ -1,8 +1,9 @@
 import { Component,OnInit,OnDestroy,Input } from '@angular/core';
-import { CommonModule } from '@angular/common'
-import { ApiResponseService } from '../services/api-response.service';
+import { DestinationApiResponseService } from '../services/destination-api-response.service';
+import { Observable } from 'rxjs';
+import { destination } from '../model/destination.model';
 import {Router} from "@angular/router";
-import { Subscription,forkJoin,map,mergeMap,switchMap } from 'rxjs';
+
 
 
 @Component({
@@ -12,10 +13,19 @@ import { Subscription,forkJoin,map,mergeMap,switchMap } from 'rxjs';
 })
 export class ListeDestinationComponent implements OnInit {
 
-  subscription1$!:Subscription;
-  constructor (private ApiResponseService:ApiResponseService ,private route:Router){}
 
-  ngOnInit():void {
+  @Input() destinations$!:Observable<destination[]>
 
-}
+  constructor(private dest: DestinationApiResponseService, private router: Router) {
+  }
+
+  ngOnInit(): void {
+  this.destinations$=this.dest.getAllDestinations()
+  }
+
+
+  onDetailDestination(id:number){
+      this.router.navigateByUrl('membres/' + id);
+   }
+
 }
