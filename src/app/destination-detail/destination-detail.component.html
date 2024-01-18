@@ -1,31 +1,19 @@
 
-<div *ngIf="destination ;else no_destination">
-  <div *ngIf="destination.id<20" class="row">
+
+
+
+<div *ngIf="destination$ |async as dest;else no_destination">
+<div *ngIf="destination$" class="row">
     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
 
       <img
-        [src]="destination.galerie[0]"
+        [src]="dest.galerie[0]"
         class="w-100 shadow-1-strong rounded mb-4"
         alt="image se charge"
       />
 
       <img
-        [src]="destination.galerie[1]"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="image se charge"
-      />
-    </div>
-
-    <div class="col-lg-4 mb-4 mb-lg-0">
-
-      <img
-        [src]="destination.galerie[2]"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="image se charge"
-      />
-
-      <img
-        [src]="destination.galerie[3]"
+        [src]="dest.galerie[1]"
         class="w-100 shadow-1-strong rounded mb-4"
         alt="image se charge"
       />
@@ -34,19 +22,37 @@
     <div class="col-lg-4 mb-4 mb-lg-0">
 
       <img
-        [src]="destination.galerie[4]"
+        [src]="dest.galerie[2]"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
+
+      <img
+        [src]="dest.galerie[3]"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="image se charge"
+      />
+    </div>
+
+    <div class="col-lg-4 mb-4 mb-lg-0">
+
+      <img
+        [src]="dest.galerie[4]"
 
         class="w-100 shadow-1-strong rounded mb-4"
         alt="image se charge"
       />
 
       <img
-        [src]="destination.galerie[5]"
+        [src]="dest.galerie[5]"
         class="w-100 shadow-1-strong rounded mb-4"
         alt="image se charge"
       />
     </div>
   </div>
+
 </div>
 
 <ng-template #no_destination><p>Error, no destination found!</p></ng-template>
+
+

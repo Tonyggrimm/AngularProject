@@ -15,7 +15,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let destination of destinations | searchDestination :searchtext">
+  <tr *ngFor="let destination of destinations$ |async| searchDestination :searchtext">
     <th scope="row">{{destination.id | number}}</th>
 
     <td><a routerLink="../membres/{{destination.id}}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{destination.nomlieu}}</a></td>

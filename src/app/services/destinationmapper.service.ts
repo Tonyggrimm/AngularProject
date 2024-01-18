@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { destination } from '../model/destination.model';
-import { single } from 'rxjs';
+import { Observable, concatMap, single } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DestinationmapperService {
+  destination!:destination[]
 
 
 
-  toClient(getResponse:destination[]):destination[]{
+  manyDestinationsToClient(getResponse:destination[]):destination[]{
     return getResponse.map((singleDestination)=>({
       id:singleDestination.id,
       nomlieu:singleDestination.nomlieu,
@@ -23,4 +24,13 @@ export class DestinationmapperService {
       galerie:singleDestination.galerie
     }));
   }
-}
+
+
+
+
+
+  }
+
+
+
+

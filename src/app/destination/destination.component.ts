@@ -1,6 +1,7 @@
-import { Component,OnInit,Input } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
 import { ApiResponseService } from '../services/api-response.service';
+import { destination } from '../model/destination.model';
 
 
 @Component({
@@ -9,13 +10,13 @@ import { ApiResponseService } from '../services/api-response.service';
   styleUrls: ['./destination.component.scss']
 })
 export class DestinationComponent   {
- // @Input() destination!: tpApiDestination;
+  @Input()destination!: destination;
   constructor(private ApiResponseService:ApiResponseService, private router: Router) {
   }
 
 
- // onDetailDestination(){
-  //  this.router.navigateByUrl('membres/' + this.destination.id);
- // }
+  onDetailDestination(){
+    this.router.navigateByUrl('membres/' + this.destination.id);
+  }
 
 }
