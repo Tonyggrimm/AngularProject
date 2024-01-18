@@ -1,8 +1,6 @@
 import { Component,OnInit,Input } from '@angular/core';
-import {destination} from "../model/destination.model";
 import {Router} from "@angular/router";
-import{UserIconPipe} from "../pipe/user-icon.pipe";
-import{DestinationService} from "../services/destination.service";
+import { ApiResponseService } from '../services/api-response.service';
 
 
 @Component({
@@ -11,13 +9,12 @@ import{DestinationService} from "../services/destination.service";
   styleUrls: ['./destination.component.scss']
 })
 export class DestinationComponent   {
-  @Input() destination!: destination;
-  constructor(private destinationService: DestinationService, private router: Router) {
+  constructor(private ApiResponseService:ApiResponseService, private router: Router) {
   }
 
 
   onDetailDestination(){
-    this.router.navigateByUrl('membres/' + this.destination.id);
+   // this.router.navigateByUrl('membres/' + this.destination.id);
   }
 
 }

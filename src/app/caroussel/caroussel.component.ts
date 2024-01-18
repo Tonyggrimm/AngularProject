@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { Component,OnInit,OnDestroy } from '@angular/core';
+import { ApiResponseService } from '../services/api-response.service';
+import { Observable, map } from 'rxjs';
+import { PhotomapperService } from '../services/photomapper.service';
+import { ImageResponse } from '../model/ImageResponse.model';
 
 @Component({
   selector: 'app-caroussel',
   templateUrl: './caroussel.component.html',
 })
-export class CarousselComponent {
-  images = ['../../assets/slideshows/SudAfrica2.jpg','../../assets/slideshows/bolivie.jpg','../assets/slideshows/kenia.jpg' , '../../assets/slideshows/Melborne.jpg','../../assets/slideshows/TajMahalIndia.jpg','../../assets/slideshows/IsaaksquareRussie.jpg', '../../assets/slideshows/AsiaChureitoPagoda.jpg','../../assets/slideshows/ParisFrance.jpg']
+export class CarousselComponent implements OnInit{
+ images$!:Observable<ImageResponse[]>;
+
+
+ constructor(private ApiResponseService : ApiResponseService,private photomapper : PhotomapperService) {}
+
+
+
+ngOnInit(): void {
+this.images$= this.ApiResponseService.getImages();
+
+
+}
+
 
 
 }

@@ -1,75 +1,13 @@
-<ngb-carousel [interval]="3000" class="m-5" *ngIf="images">
-  <ng-template  ngbSlide>
+
+  <ngb-carousel [interval]="3000" class="m-5">
+  <ng-template *ngFor= "let response of images$|async"  ngbSlide>
     <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[0]" alt="Random first slide" />
+      <img class="caroussels" [src]="response.url" alt="image is loading..." />
     </div>
     <div class="carousel-caption">
-      <h3>Afrique du sud</h3>
-      <p>Ville de Johannesburg</p>
+      <h3>{{response.author}}</h3>
+      <p>Author of the picture</p>
     </div>
   </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[1]" alt="Random second slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>La Bolivie</h3>
-      <p>Les magnifiques paysages de bolivie</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[2]" alt="Random third slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>Le Kenia</h3>
-      <p>Les magnifiques paysages du Kenia</p>
-    </div>
-  </ng-template>
-  <ng-template  ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[3]" alt="Random first slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>Melbourne</h3>
-      <p>Les magnifiques paysages de Melbourne</p>
-    </div>
-  </ng-template>
-  <ng-template  ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[4]" alt="Random first slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>L'Inde</h3>
-      <p>Le Taj Mahal</p>
-    </div>
-  </ng-template>
-  <ng-template  ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[5]" alt="Random first slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>Russie</h3>
-      <p>Isaak Square</p>
-    </div>
-  </ng-template>
-  <ng-template  ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[6]" alt="Random first slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>Le Japon</h3>
-      <p>Chureito Pagoda</p>
-    </div>
-  </ng-template>
-  <ng-template  ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img class="caroussels" [src]="images[7]" alt="Random first slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>La France</h3>
-      <p>La Tour Eifel.</p>
-    </div>
-  </ng-template>
-</ngb-carousel>
+  </ngb-carousel>
 

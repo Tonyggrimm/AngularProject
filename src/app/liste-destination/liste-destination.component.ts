@@ -1,34 +1,21 @@
-import { Component ,Input } from '@angular/core';
+import { Component,OnInit,OnDestroy,Input } from '@angular/core';
 import { CommonModule } from '@angular/common'
-import {DestinationService} from "../services/destination.service";
-import{destination} from "../model/destination.model";
+import { ApiResponseService } from '../services/api-response.service';
 import {Router} from "@angular/router";
+import { Subscription,forkJoin,map,mergeMap,switchMap } from 'rxjs';
+
 
 @Component({
   selector: 'app-liste-destination',
   templateUrl: './liste-destination.component.html',
   styleUrls: ['./liste-destination.component.scss']
 })
-export class ListeDestinationComponent {
-  isChecked1!:boolean
-  isChecked2!:boolean
+export class ListeDestinationComponent implements OnInit {
 
-  url!:string;
-  destinations!:destination[];
-  constructor (private destinationService:DestinationService,private route:Router){}
+  subscription1$!:Subscription;
+  constructor (private ApiResponseService:ApiResponseService ,private route:Router){}
+
   ngOnInit():void {
-    this.destinations=this.destinationService.getAllDestinations();
-    console.log(this.destinationService.isChecked1);
 
-
-
-
-
-  }
-
-
-
-
-
-
+}
 }

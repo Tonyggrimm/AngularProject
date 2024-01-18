@@ -1,31 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable,forkJoin } from 'rxjs';
+import { BasicResponse } from '../model/BasicResponse.model';
+import { PhotomapperService } from './photomapper.service';
+import { map } from 'rxjs';
+import { ImageResponse } from '../model/ImageResponse.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiResponseService {
 
-    baseUrl = 'https://api.teleport.org/api/urban_areas';
+    baseUrl = 'https://picsum.photos/v2/list?limit=100';
 
 
-    constructor(private http:HttpClient) {}
+    constructor(private http:HttpClient,private photomapperservice:PhotomapperService) {}
 
-    getApiDestinationMainUrl(): Observable<any> {
 
-      return this.http.get<any>(`${this.baseUrl}`)
+    getImages(): Observable<ImageResponse[]> {
+
+      return (this.http.get<BasicResponse[]>(`${this.baseUrl}`)).pipe(map((imagesResponse)=>this.photomapperservice.toClient(imagesResponse)));
     }
 
-    getApiDestinationComplexUrl(cityName :string):Observable<Object> {
 
-      return this.http.get<Object>(`${this.baseUrl}`+"/slug:"+ cityName, {responseType:'json'})
-    }
-
-    getApiDestinationImages(cityName :string):Observable<Object> {
-
-      return this.http.get<Object>(`${this.baseUrl}`+"/slug:"+ cityName+"/images", {responseType:'json'})
-    }
 
 
 
