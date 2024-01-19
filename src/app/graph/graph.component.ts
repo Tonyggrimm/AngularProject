@@ -1,7 +1,7 @@
 import { Component, OnInit,OnDestroy,ViewChild,ElementRef,AfterViewInit} from '@angular/core';
 import {Chart, ChartConfiguration, ChartItem, registerables} from 'node_modules/chart.js'
 import {DestinationApiResponseService } from '../services/destination-api-response.service';
-import {fromEvent, Observable, Subscription } from "rxjs";
+import {debounceTime, fromEvent, Observable, Subscription } from "rxjs";
 
 @Component({
   selector: 'app-graph',
@@ -43,9 +43,11 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
   ngAfterViewInit(): void {
     this.cnv=this.myChart.nativeElement;
     this.cnv.style.backgroundColor = "#add8e6";
-      if(!this.chartContainer){
+     if(!this.chartContainer){
+      setTimeout(() => {
         this.createChart();
-      }
+      }, 150);
+    }
 
 
   }
@@ -56,10 +58,13 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
 
 
   ngOnInit(): void {
-    this.resizeObservable$ = fromEvent(window, 'resize')
-    this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
 
-      this.createChart();
+    this.resizeObservable$ = fromEvent(window, 'resize')
+    this.resizeSubscription$ = this.resizeObservable$.pipe(debounceTime(200)).subscribe( evt => {
+        this.createChart();
+
+
+
 
     })
 
