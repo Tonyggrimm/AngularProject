@@ -1,3 +1,5 @@
+//SERVICE THAT IMPLEMENTS A TO CLIENT MAPPING FUNCTION TO TRANSFORM RESPONSE INTO IMAGERESPONSE MODEL
+
 import { Injectable } from '@angular/core';
 import { BasicResponse } from '../model/BasicResponse.model';
 import { ImageResponse } from '../model/ImageResponse.model';
@@ -15,13 +17,4 @@ export class PhotomapperService {
     }));
   }
 
-
-  getRandomImageId(min:number,max:number){
-    let test =  Math.floor(Math.random() * (max - min + 1)) + min
-    if(test==86){
-      return 0
-    }else{
-      return test
-    }
-  }
 }

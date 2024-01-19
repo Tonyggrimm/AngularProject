@@ -1,5 +1,4 @@
-import { Component,OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Component} from '@angular/core';
 
 
 
@@ -8,8 +7,5 @@ import {Router} from "@angular/router";
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent {
 
-
-
-}
+export class HeaderComponent {}

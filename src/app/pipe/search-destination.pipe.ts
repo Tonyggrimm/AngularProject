@@ -1,7 +1,9 @@
+//Pipe, that filters the destinations by a certain input
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'searchDestination'
+  name: 'searchDestination',
+  standalone:true
 })
 export class SearchDestinationPipe implements PipeTransform {
   str!:string;

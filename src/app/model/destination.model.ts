@@ -1,3 +1,4 @@
+//DestinationModel that contains all necessary data for the display of a destination
 export interface destination {
   id: number;
   nomlieu: string;

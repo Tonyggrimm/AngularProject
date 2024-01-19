@@ -1,16 +1,16 @@
+//SERVICE THAT IMPLEMENTS A TO CLIENT MAPPING FUNCTION TO TRANSFORM DESTINATIONRESPONSE INTO DESTINATION MODEL
+
 import { Injectable } from '@angular/core';
 import { destination } from '../model/destination.model';
-import { Observable, concatMap, single } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DestinationmapperService {
-  destination!:destination[]
 
 
 
-  manyDestinationsToClient(getResponse:destination[]):destination[]{
+  ToClient(getResponse:destination[]):destination[]{
     return getResponse.map((singleDestination)=>({
       id:singleDestination.id,
       nomlieu:singleDestination.nomlieu,
