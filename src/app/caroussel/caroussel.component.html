@@ -1,5 +1,4 @@
-
-  <ngb-carousel [interval]="3000" class="m-5">
+<ngb-carousel [interval]="3000" class="m-5">
   <ng-template *ngFor= "let response of images$|async"  ngbSlide>
     <div class="picsum-img-wrapper">
       <img class="caroussels" [src]="response.url" alt="image is loading..." />
@@ -9,5 +8,5 @@
       <p>Author of the picture</p>
     </div>
   </ng-template>
-  </ngb-carousel>
+</ngb-carousel>
 

@@ -8,11 +8,10 @@ import { DestinationmapperService } from './destinationmapper.service';
   providedIn: 'root'
 })
 export class DestinationApiResponseService {
-  destination!:destination
+  continents:string[]=["Asie","Afrique","Europe","Océanie","Amérique du Nord","Amérique du Sud"];
+  destinations!:destination[]
 
   constructor(private http:HttpClient,private destinationmapper :DestinationmapperService) { }
-
-
 
 
     getAllDestinations() : Observable<destination[]>{
@@ -24,9 +23,22 @@ export class DestinationApiResponseService {
       return this.http.get<destination[]>(`${"https://mocki.io/v1/7ce878fc-745c-4f01-84c7-df90d988ed60"}`)
       .pipe(concatMap(destinationResponse=>destinationResponse.filter(destination=>destination.id==id)));
 
-
-
-      }
     }
+
+    getDestinationByContinent(continent:number):Observable<destination[]>{
+      return this.http.get<destination[]>(`${"https://mocki.io/v1/7ce878fc-745c-4f01-84c7-df90d988ed60"}`)
+      .pipe(map(destinationResponse=>destinationResponse.filter(destination=>destination.continent==this.continents[continent])));
+
+    }
+
+    getDestinationCountPerContinent(continent:number):Observable<number>{
+     return this.getDestinationByContinent(continent).pipe(map((result)=>(result.length)))
+    }
+
+
+
+    }
+
+
 
 

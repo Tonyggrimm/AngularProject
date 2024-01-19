@@ -1,6 +1,6 @@
 <div class="row row-cols-1 row-cols-md-2 g-4">
 
-  <div *ngFor="let destination of destinations" class="col">
+  <div *ngFor="let destination of destinations$|async" class="col">
     <div class="card">
       <img [src]="destination.afficheUrl" class="card-img-top" alt="image se charge"/>
       <div class="card-body">
@@ -18,4 +18,3 @@
   </div>
 
 </div>
-

@@ -15,7 +15,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import {ContactComponent} from "./contact/contact.component";
 import {ContactListComponent} from "./contact-list/contact-list.component";
-import {FormComponent} from "./form/form.component";
 import {ContactFormComponent} from "./contactForm/contactForm.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GraphComponent } from './graph/graph.component';
@@ -23,16 +22,9 @@ import { ListeDestinationComponent } from './liste-destination/liste-destination
 import { DestinationComponent } from './destination/destination.component';
 import { UserIconPipe } from './pipe/user-icon.pipe';
 import { DestinationDetailComponent } from './destination-detail/destination-detail.component';
-import { AfriqueComponent } from './afrique/afrique.component';
-import { AsieComponent } from './asie/asie.component';
-import { EuropeComponent } from './europe/europe.component';
-import { OceanieComponent } from './oceanie/oceanie.component';
-import { FilterPipe } from './pipe/filter.pipe';
-import { SearchEmployeePipe } from './pipe/search-employee.pipe';
 import { SearchDestinationPipe } from "./pipe/search-destination.pipe";
 import { SearchDestinationComponent } from './search-destination/search-destination.component';
-import { AmeriqueNordComponent } from './amerique-nord/amerique-nord.component';
-import { AmeriqueSudComponent } from './amerique-sud/amerique-sud.component';
+import { ContinentDestinationsComponent } from "./continent-destinations/continent-destinations.component";
 
 
 @NgModule({
@@ -45,24 +37,15 @@ import { AmeriqueSudComponent } from './amerique-sud/amerique-sud.component';
     FooterComponent,
     ContactComponent,
     ContactListComponent,
-    FormComponent,
     ContactFormComponent,
     GraphComponent,
     ListeDestinationComponent,
     DestinationComponent,
     UserIconPipe,
     DestinationDetailComponent,
-
-     AfriqueComponent,
-     AsieComponent,
-     EuropeComponent,
-     OceanieComponent,
-     FilterPipe,
      SearchDestinationPipe,
-     SearchEmployeePipe,
      SearchDestinationComponent,
-     AmeriqueNordComponent,
-     AmeriqueSudComponent,
+     ContinentDestinationsComponent
 
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit,OnDestroy,ViewChild,ElementRef,AfterViewInit} from '@angular/core';
 import {Chart, ChartConfiguration, ChartItem, registerables} from 'node_modules/chart.js'
-import { DestinationService } from '../services/destination.service';
-import { fromEvent, Observable, Subscription } from "rxjs";
+import {DestinationApiResponseService } from '../services/destination-api-response.service';
+import {fromEvent, Observable, Subscription } from "rxjs";
 
 @Component({
   selector: 'app-graph',
@@ -17,17 +17,25 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
   continentAmountAsia!:number;
   continentAmountOceania!:number;
   cnv!:any;
-  resizeObservable!:Observable<Event>;
-  resizeSubscription!:Subscription;
+  resizeObservable$!:Observable<Event>;
+  resizeSubscription$!:Subscription;
+  destSub1$!:Subscription;
+  destSub2$!:Subscription;
+  destSub3$!:Subscription;
+  destSub4$!:Subscription;
+  destSub5$!:Subscription;
+  destSub6$!:Subscription;
 
 
-  constructor(destinationService :DestinationService){
-    this.continentAmountAfrica=destinationService.getAfriqueDestinations().length;
-    this.continentAmountEurope=destinationService.getEuropeDestinations().length;
-    this.continentAmountNA=destinationService.getNADestinations().length;
-    this.continentAmountSA=destinationService.getSADestinations().length;
-    this.continentAmountAsia=destinationService.getAsieDestinations().length;
-    this.continentAmountOceania=destinationService.getOceanieDestinations().length;
+  constructor(destinationService :DestinationApiResponseService){
+    this.destSub1$=destinationService.getDestinationCountPerContinent(0).subscribe((count:number)=>{this.continentAmountAsia=count});
+    this.destSub2$=destinationService.getDestinationCountPerContinent(1).subscribe((count:number)=>{this.continentAmountAfrica=count});
+    this.destSub3$=destinationService.getDestinationCountPerContinent(2).subscribe((count:number)=>{this.continentAmountEurope=count});
+    this.destSub4$=destinationService.getDestinationCountPerContinent(3).subscribe((count:number)=>{this.continentAmountOceania=count});
+    this.destSub5$=destinationService.getDestinationCountPerContinent(4).subscribe((count:number)=>{this.continentAmountNA=count});
+    this.destSub6$=destinationService.getDestinationCountPerContinent(5).subscribe((count:number)=>{this.continentAmountSA=count});
+
+
 
   }
 
@@ -38,6 +46,8 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
       if(!this.chartContainer){
         this.createChart();
       }
+
+
   }
 
 
@@ -46,10 +56,16 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
 
 
   ngOnInit(): void {
-    this.resizeObservable = fromEvent(window, 'resize')
-    this.resizeSubscription = this.resizeObservable.subscribe( evt => {
+    this.resizeObservable$ = fromEvent(window, 'resize')
+    this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
+
       this.createChart();
+
     })
+
+
+
+
 
 
 
@@ -100,7 +116,13 @@ export class GraphComponent implements OnInit,OnDestroy,AfterViewInit{
     }
 
   ngOnDestroy() {
-    this.resizeSubscription.unsubscribe()
+    this.resizeSubscription$.unsubscribe()
+    this.destSub1$.unsubscribe()
+    this.destSub2$.unsubscribe()
+    this.destSub3$.unsubscribe()
+    this.destSub4$.unsubscribe()
+    this.destSub5$.unsubscribe()
+    this.destSub6$.unsubscribe()
 }
 
 
