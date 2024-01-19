@@ -1,23 +1,22 @@
-import { Component, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import { Router ,ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
   constructor(private router :Router){
 
   }
 
-ngOnInit(): void {
-  
 
+
+refresh(continent:number):void{
+  this.router.navigateByUrl('alldestinations')
+    .then(()=>{this.router.navigateByUrl('continent-destinations/'+continent)})
 }
-
-
-
 
 
 }
